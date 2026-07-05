@@ -33,8 +33,15 @@ nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-f
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{background:var(--ink);color:#fff !important;padding:8px 16px;border-radius:8px;font-size:.85rem;transition:background .15s}
 .nav-cta:hover{background:var(--cobalt)}
-@media(max-width:640px){.nav-links a:not(.nav-cta){display:none}}
-
+.nav-toggle{display:none;background:none;border:1.5px solid var(--line);border-radius:8px;width:38px;height:38px;cursor:pointer;align-items:center;justify-content:center;color:var(--ink);flex-shrink:0}
+.nav-toggle svg{width:18px;height:18px}
+@media(max-width:640px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 0;box-shadow:0 12px 24px -16px rgba(23,26,33,.18);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 24px;font-size:.95rem}
+  .nav-links .nav-cta{margin:8px 24px 4px;text-align:center;justify-content:center}
+}
 .page-head{padding:72px 0 12px}
 .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:28px;height:1.5px;background:var(--cobalt)}
@@ -115,7 +122,10 @@ footer a{color:var(--ink-soft)}
 <nav>
   <div class="nav-inner">
     <a class="logo" href="index.html">Divya<span>.</span>Mehta</a>
-    <div class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="index.html#work">Work</a>
       <a href="beyond-work.html">Beyond Work</a>
       <a href="blog.html" style="color:var(--ink);font-weight:600">Blog</a>
@@ -228,5 +238,19 @@ footer a{color:var(--ink-soft)}
   });
 })();
 </script>
+<script>
+  (function(){
+    var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+    if(t&&l){
+      t.addEventListener('click',function(){
+        var open=l.classList.toggle('open');
+        t.setAttribute('aria-expanded',open);
+      });
+      l.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
