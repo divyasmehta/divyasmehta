@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog — Divya Mehta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#171a21;--ink-soft:#4b5162;--ink-faint:#8a90a2;
+  --paper:#ffffff;--paper-tint:#f6f7fa;--line:#e6e8ee;
+  --cobalt:#2443c9;--cobalt-soft:#eceffc;
+  --mono:'JetBrains Mono',monospace;
+  --display:'Bricolage Grotesque',sans-serif;
+  --body:'Public Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--cobalt);text-decoration:none}
+a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+.wrap{max-width:740px;margin:0 auto;padding:0 24px}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);letter-spacing:-.01em}
+.logo span{color:var(--cobalt)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--ink-soft);font-size:.875rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff !important;padding:8px 16px;border-radius:8px;font-size:.85rem;transition:background .15s}
+.nav-cta:hover{background:var(--cobalt)}
+@media(max-width:640px){.nav-links a:not(.nav-cta){display:none}}
+
+.back-link{display:inline-flex;align-items:center;gap:8px;margin:40px 0 0;font-size:.875rem;font-weight:500;color:var(--ink-soft)}
+.back-link:hover{color:var(--cobalt)}
+
+article{padding:32px 0 64px}
+.post-meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.05em;margin-bottom:20px}
+.post-tag{color:var(--cobalt);background:var(--cobalt-soft);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+h1{font-family:var(--display);font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:700;letter-spacing:-.025em;line-height:1.12}
+.byline{margin-top:16px;padding-bottom:28px;border-bottom:1px solid var(--line);color:var(--ink-faint);font-size:.875rem}
+.byline b{color:var(--ink);font-weight:600}
+.post-body{margin-top:32px}
+.post-body p{color:var(--ink-soft);margin-bottom:20px}
+.post-body p:first-of-type{font-size:1.1rem;color:var(--ink)}
+.post-body h3{font-family:var(--display);font-size:1.35rem;font-weight:600;letter-spacing:-.015em;margin:36px 0 14px;color:var(--ink)}
+
+.post-footer{border-top:1px solid var(--line);padding:32px 0 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.925rem;transition:transform .15s,background .15s,border-color .15s}
+.btn-primary{background:var(--cobalt);color:#fff}
+.btn-primary:hover{background:#1c37ab;transform:translateY(-1px)}
+.btn-ghost{border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding:28px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.83rem;color:var(--ink-faint)}
+footer a{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Divya<span>.</span>Mehta</a>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="beyond-work.html">Beyond Work</a>
+      <a href="blog.html" style="color:var(--ink);font-weight:600">Blog</a>
+      <a class="nav-cta" href="https://www.linkedin.com/in/divyasmehta" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <a class="back-link" href="blog.html">← All posts</a>
+</div>
+
+<article>
+  <div class="wrap" id="post-container">
+    <!-- Post rendered here by script -->
+  </div>
+</article>
+
+<div class="wrap">
+  <footer>
+    <div>© 2026 Divya Mehta · Hyderabad, India</div>
+    <div><a href="index.html">Portfolio</a> · <a href="blog.html">Blog</a> · <a href="https://www.linkedin.com/in/divyasmehta" target="_blank" rel="noopener">LinkedIn</a></div>
+  </footer>
+</div>
+
+<script src="blog-data.js"></script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("post");
+  const idx = BLOG_POSTS.findIndex(p => p.slug === slug);
+  const post = idx >= 0 ? BLOG_POSTS[idx] : BLOG_POSTS[0];
+
+  document.title = post.title + " — Divya Mehta";
+
+  const bodyHtml = post.body.map(block =>
+    typeof block === "string" ? `<p>${block}</p>` : `<h3>${block.h}</h3>`
+  ).join("");
+
+  // previous / next navigation
+  const realIdx = idx >= 0 ? idx : 0;
+  const newer = realIdx > 0 ? BLOG_POSTS[realIdx - 1] : null;
+  const older = realIdx < BLOG_POSTS.length - 1 ? BLOG_POSTS[realIdx + 1] : null;
+
+  document.getElementById("post-container").innerHTML = `
+    <div class="post-meta">
+      <span class="post-tag">${post.tag}</span>
+      <span>${post.date}</span>
+      <span>${post.readTime}</span>
+    </div>
+    <h1>${post.title}</h1>
+    <div class="byline">by <b>Divya Mehta</b></div>
+    <div class="post-body">${bodyHtml}</div>
+    <div class="post-footer">
+      ${older ? `<a class="btn btn-ghost" href="blog-post.html?post=${older.slug}">← Older post</a>` : `<span></span>`}
+      ${newer ? `<a class="btn btn-primary" href="blog-post.html?post=${newer.slug}">Newer post →</a>` : `<a class="btn btn-primary" href="blog.html">All posts</a>`}
+    </div>
+  `;
+})();
+</script>
+</body>
+</html>

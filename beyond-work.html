@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beyond Work — Divya Mehta</title>
+<meta name="description" content="Sitar, yoga, and plant-based food — life outside the terminal." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#171a21;
+  --ink-soft:#4b5162;
+  --ink-faint:#8a90a2;
+  --paper:#ffffff;
+  --paper-tint:#f6f7fa;
+  --line:#e6e8ee;
+  --cobalt:#2443c9;
+  --cobalt-soft:#eceffc;
+  --mono:'JetBrains Mono',monospace;
+  --display:'Bricolage Grotesque',sans-serif;
+  --body:'Public Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);color:var(--ink);background:var(--paper);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--cobalt);text-decoration:none}
+a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+/* nav — same as main page */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);letter-spacing:-.01em}
+.logo span{color:var(--cobalt)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--ink-soft);font-size:.875rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff !important;padding:8px 16px;border-radius:8px;font-size:.85rem;transition:background .15s}
+.nav-cta:hover{background:var(--cobalt)}
+@media(max-width:640px){.nav-links a:not(.nav-cta){display:none}}
+
+/* hero */
+.hero{padding:88px 0 56px;text-align:center}
+.eyebrow{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cobalt);margin-bottom:18px;
+}
+h1{
+  font-family:var(--display);
+  font-size:clamp(2.2rem,5.5vw,3.6rem);
+  font-weight:700;line-height:1.08;letter-spacing:-.025em;
+  max-width:20ch;margin:0 auto;
+}
+h1 em{font-style:normal;color:var(--cobalt)}
+.hero p{margin:20px auto 0;max-width:52ch;color:var(--ink-soft);font-size:1.05rem}
+
+/* interest sections */
+section{padding:64px 0}
+section + section{border-top:1px solid var(--line)}
+.sec-label{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cobalt);margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-label::before{content:"";width:28px;height:1.5px;background:var(--cobalt)}
+h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2}
+section > .wrap > p{margin-top:14px;color:var(--ink-soft);max-width:64ch}
+
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pill{
+  font-family:var(--mono);font-size:.72rem;padding:5px 12px;border-radius:999px;
+  background:var(--paper-tint);border:1px solid var(--line);color:var(--ink-soft);
+}
+
+/* image slots */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.gallery.two{grid-template-columns:repeat(2,1fr)}
+figure.slot{
+  aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  border:1.5px dashed var(--line);
+  background:var(--paper-tint);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+figure.slot img{width:100%;height:100%;object-fit:cover;display:block}
+figure.slot .placeholder{
+  font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);
+  text-align:center;padding:16px;letter-spacing:.04em;line-height:1.7;
+}
+figure.slot:has(img) {border-style:solid}
+figure.slot:has(img) .placeholder{display:none}
+@media(max-width:640px){.gallery{grid-template-columns:1fr 1fr}.gallery.two{grid-template-columns:1fr}}
+
+/* journey list for yoga trainings */
+.journey{margin-top:24px;display:grid;gap:12px}
+.journey-item{
+  display:flex;gap:16px;align-items:baseline;
+  border:1px solid var(--line);border-radius:12px;padding:16px 20px;background:var(--paper);
+}
+.journey-item b{font-family:var(--display);font-weight:600;font-size:1rem;flex:1}
+.journey-item span{font-family:var(--mono);font-size:.74rem;color:var(--ink-faint);white-space:nowrap}
+
+/* closing */
+.closing{text-align:center;padding:80px 0 96px}
+.closing p{margin:14px auto 30px;color:var(--ink-soft);max-width:46ch}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:10px;font-weight:600;font-size:.925rem;
+  transition:transform .15s,background .15s;
+}
+.btn-primary{background:var(--cobalt);color:#fff}
+.btn-primary:hover{background:#1c37ab;transform:translateY(-1px)}
+
+footer{
+  border-top:1px solid var(--line);padding:28px 0;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  font-size:.83rem;color:var(--ink-faint);
+}
+footer a{color:var(--ink-soft)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Divya<span>.</span>Mehta</a>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="beyond-work.html" style="color:var(--ink);font-weight:600">Beyond Work</a>
+      <a href="blog.html">Blog</a>
+      <a class="nav-cta" href="https://www.linkedin.com/in/divyasmehta" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Beyond Work</div>
+    <h1>Code by day. <em>Music, yoga, and slow food</em> the rest of the time.</h1>
+    <p>I'm a strong believer that balance makes you better at everything — including engineering. Here's the life that happens away from the terminal.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">Off Screen</div>
+    <h2>Not a Netflix person</h2>
+    <p>You won't find me binge-watching — I haven't watched a movie in seven years. My idea of a good evening is hosting friends at home: cooking for them, trying a new vegan recipe, and losing track of time over board games. I'm drawn to theatre — not just the play, but everything that happens behind it — and I've done a few acting workshops to get closer to that world. Beyond that, it's poetry open mics and long drives.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">Yoga</div>
+    <h2>Practicing balance, on and off the mat</h2>
+    <p>Yoga started as a practice and became a lens. Bringing its aspects into daily life — breath, discipline, stillness — is quietly making me a better person. I take solo trips to yoga schools around India: a month in Rishikesh for my 200-hour teacher training, and another 100 hours across Mysore and Goa.</p>
+    <div class="journey">
+      <div class="journey-item reveal"><b>200-hour Yoga Teacher Training</b><span>Rishikesh · 1 month</span></div>
+      <div class="journey-item reveal"><b>100 hours of practice & study</b><span>Mysore & Goa</span></div>
+      <div class="journey-item reveal"><b>Solo travel to yoga schools</b><span>Ongoing, across India</span></div>
+    </div>
+    <div class="gallery two">
+      <figure class="slot reveal"><img src="images/1.jpg"></figure>
+      <figure class="slot reveal"><img src="images/2.jpg"></figure>
+      <figure class="slot reveal"><img src="images/22 (2).jpg"></figure>
+      <figure class="slot reveal"><img src="images/3.jpg"></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">Food</div>
+    <h2>Plant-based plates, vegan cafés — and ghee</h2>
+    <p>I love plant-based food and hunting down vegan cafés in every city I visit. But I'm also a Marwadi, which means ghee is in my blood — and I love that too. Balance, remember?</p>
+    <div class="gallery two">
+      <figure class="slot reveal"><img src="images/5.jpg"></figure>
+      <figure class="slot reveal"><img src="images/7.jpg"></figure>
+      <figure class="slot reveal"><img src="images/9.jpg"></figure>
+      <figure class="slot reveal"><img src="images/99.jpg"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="closing" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Back to the work side of things?</h2>
+    <p>Projects, experience, and the tech stack live on the main page.</p>
+    <a class="btn btn-primary" href="index.html">← Back to portfolio</a>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <div>© 2026 Divya Mehta · Hyderabad, India</div>
+    <div><a href="https://www.linkedin.com/in/divyasmehta" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:divyasmehta@gmail.com">Email</a></div>
+  </footer>
+</div>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
